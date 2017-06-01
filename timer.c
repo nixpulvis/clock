@@ -2,14 +2,15 @@
 #include <max7221.h>
 
 int main(void) {
-  struct tm now = ds1307_get_time();
+  max7221_init(MAX7221_INIT_BCD);
+  ds1307_init(I2C_SCL_100KHZ);
+  ds1307_start();
 
-  // Minute
-  max7221_display_bcd_digit(0, now.tm_min / 10);
-  max7221_display_bcd_digit(1, now.tm_min % 10);
-  // Second
-  max7221_display_bcd_digit(2, now.tm_sec / 10);
-  max7221_display_bcd_digit(3, now.tm_sec % 10);
+  for(;;) {
+    struct tm current_time = ds1307_get_time();
+    int value = current_time.tm_min * 100 + current_time.tm_sec;
+    max7221_display_bcd_int(value, 4);
+  }
 
   return 0;
 }
