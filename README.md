@@ -1,5 +1,7 @@
 # Clock
 
+[![Build Status](https://travis-ci.org/nixpulvis/clock.svg?branch=master)](https://travis-ci.org/nixpulvis/clock)
+
 This is my personal clock. It runs military time, and is currently very limited
 but features are planned.
 
