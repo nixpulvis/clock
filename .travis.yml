@@ -1,0 +1,20 @@
+---
+language: c
+sudo: true
+
+before_install:
+    - sudo apt-get update -qq
+install:
+    - sudo apt-get install -qq gcc-avr binutils-avr avr-libc
+    - git clone https://github.com/nixpulvis/avrm.git ~/avrm
+    - git clone https://github.com/nixpulvis/ds1307.git ~/ds1307
+    - git clone https://github.com/nixpulvis/max7221.git ~/max7221
+    - cd ~/avrm
+    - sudo make install
+    - cd ~/ds1307
+    - sudo make install
+    - cd ~/max7221
+    - sudo make install
+
+script: sudo make military.size
+
