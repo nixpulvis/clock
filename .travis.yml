@@ -15,6 +15,7 @@ install:
     - sudo make install
     - cd ~/max7221
     - sudo make install
+    - cd $TRAVIS_BUILD_DIR
 
-script: sudo make military.size
+script: make military.size
 
