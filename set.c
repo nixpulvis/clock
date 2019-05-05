@@ -1,5 +1,4 @@
 #include <ds1307.h>
-#include <max7221.h>
 
 int main(void) {
   ds1307_init(I2C_SCL_100KHZ);
